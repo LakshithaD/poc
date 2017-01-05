@@ -69,6 +69,8 @@
     <module>http-clinet-poc</module>
     <module>ssh-poc</module>
     <module>jmx-poc</module>
+    <module>socket-server</module>
+    <module>socket-client</module>
   </modules>
 
 	<build>

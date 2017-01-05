@@ -121,7 +121,7 @@ public class Main {
             try {
  
                 // Create a ConnectionFactory
-                ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory("vm://localhost");
+                ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://localhost:56789");
  
                 // Create a Connection
                 Connection connection = connectionFactory.createConnection();
