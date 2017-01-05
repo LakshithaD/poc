@@ -50,6 +50,9 @@ public class ClientApplication {
 				Socket socket = new Socket("192.168.1.102", 40000);
 				LOGGER.info("Connected to server .............................");
 				InputStream in = socket.getInputStream();
+				Reader reader = new Reader(in);
+				Thread readerThread = new Thread(reader);
+				readerThread.start();
 				OutputStream out = socket.getOutputStream();
 				Scanner sc = new Scanner(System.in);
 				while (true) {
@@ -57,9 +60,6 @@ public class ClientApplication {
 					String message = sc.nextLine();
 					LOGGER.info("Wating for console message.............................");
 					out.write(message.getBytes());
-					byte[] read = new byte[200];
-					int count = in.read(read);
-					LOGGER.info("READ : " + new String(read, 0, count));
 				}
 
 			} catch (IOException e) {
